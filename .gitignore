@@ -1,0 +1,14 @@
+node_modules
+dist
+coverage
+*.log
+
+backend/data
+backend/.env
+backend/.mongodb/
+
+
+frontend/node_modules
+frontend/dist
+backend/.env.local
+frontend/.env

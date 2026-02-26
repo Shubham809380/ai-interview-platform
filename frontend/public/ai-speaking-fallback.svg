@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="AI interviewer">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="38%" r="45%">
+      <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#7dd3fc" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)" />
+  <ellipse cx="640" cy="290" rx="360" ry="210" fill="url(#glow)" />
+  <circle cx="640" cy="260" r="110" fill="#e5e7eb" />
+  <rect x="510" y="380" width="260" height="190" rx="110" fill="#93c5fd" />
+  <circle cx="600" cy="245" r="12" fill="#1e293b" />
+  <circle cx="680" cy="245" r="12" fill="#1e293b" />
+  <rect x="595" y="300" width="90" height="16" rx="8" fill="#0f172a" />
+  <text x="640" y="640" fill="#ffffff" font-family="Arial, sans-serif" font-size="36" text-anchor="middle">
+    AI Interviewer
+  </text>
+</svg>
