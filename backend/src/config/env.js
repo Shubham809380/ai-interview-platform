@@ -63,6 +63,10 @@ const env = {
   nodeEnv: getFirstDefinedEnv(["NODE_ENV"], "development"),
   port: Number(getFirstDefinedEnv(["PORT"], "5000")),
   mongoUri: getFirstDefinedEnv(["MONGODB_URI"], "mongodb://127.0.0.1:27017/ai_interview_platform"),
+  mongoIpFamily: (() => {
+    const parsed = Number(getFirstDefinedEnv(["MONGO_IP_FAMILY"], "4"));
+    return parsed === 4 || parsed === 6 ? parsed : 4;
+  })(),
   jwtSecret: getFirstDefinedEnv(["JWT_SECRET"], "dev-secret-change-me"),
   jwtExpiresIn: getFirstDefinedEnv(["JWT_EXPIRES_IN"], "7d"),
   sessionSecret: getFirstDefinedEnv(["SESSION_SECRET", "JWT_SECRET"], "dev-session-secret-change-me"),

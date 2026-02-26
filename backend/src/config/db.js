@@ -6,6 +6,10 @@ const mongoose = require("mongoose");
 const { env } = require("./env");
 
 const LOCAL_MONGO_REGEX = /^mongodb:\/\/(127\.0\.0\.1|localhost):27017(\/|$)/i;
+const mongoConnectOptions = {
+  serverSelectionTimeoutMS: 8000,
+  ...(env.mongoIpFamily === 4 || env.mongoIpFamily === 6 ? { family: env.mongoIpFamily } : {})
+};
 
 function shouldTryLocalMongoAutoStart(error) {
   const enabled = String(process.env.MONGO_AUTOSTART_LOCAL || "true").toLowerCase() !== "false";
@@ -93,7 +97,7 @@ async function connectDb() {
   mongoose.set("strictQuery", true);
 
   try {
-    await mongoose.connect(env.mongoUri, { serverSelectionTimeoutMS: 8000 });
+    await mongoose.connect(env.mongoUri, mongoConnectOptions);
     return mongoose.connection;
   } catch (error) {
     if (!shouldTryLocalMongoAutoStart(error)) {
@@ -114,7 +118,7 @@ async function connectDb() {
       );
     }
 
-    await mongoose.connect(env.mongoUri, { serverSelectionTimeoutMS: 8000 });
+    await mongoose.connect(env.mongoUri, mongoConnectOptions);
     return mongoose.connection;
   }
 }
